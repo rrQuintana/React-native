@@ -21,7 +21,7 @@ const ServicesStackScreen = () => {
       }}
     >
       <ServiceStack.Screen name="Servicios" component={ServiceScreen1} />
-      <ServiceStack.Screen name="Servicio" component={ServiceScreen2} />
+      <ServiceStack.Screen name="ServiceDetails" component={ServiceScreen2} />
     </ServiceStack.Navigator>
   );
 };

@@ -26,7 +26,7 @@ const Tabs = () => {
 
 
   return (
-    <NavigationContainer>
+    <NavigationContainer name="tabs">
       <Tab.Navigator
         initialRouteName="Feed"
         activeColor="#e91e63"
@@ -45,12 +45,12 @@ const Tabs = () => {
           }}
         />
         <Tab.Screen
-          name="Productos"
+          name="Artículos"
           component={ProductsStackScreen}
           options={{
             tabBarLabel: "Artículos",
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="charity" color={color} size={26} />
+              <MaterialCommunityIcons name="card-account-details" color={color} size={26} />
             ),
           }}
         />
@@ -61,7 +61,7 @@ const Tabs = () => {
             tabBarLabel: "Servicios",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons
-                name="card-account-mail"
+                name="charity"
                 color={color}
                 size={26}
               />

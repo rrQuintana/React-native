@@ -1,10 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { AuthProvider } from './src/AuthContext';
 import Tabs from './src/Tabs';
 
 export default function App() {
   return (
+    <AuthProvider>
     <Tabs></Tabs>
+    </AuthProvider>
   );
 }
 

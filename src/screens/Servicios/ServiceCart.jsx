@@ -3,25 +3,11 @@ import * as React from "react";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 
-const ProductCart = ({
-  createdAt,
-  _id,
-  foto,
-  categoria,
-  titulo,
-  contenido,
-  precio,
-}) => {
+const ProductCart = ({ _id, foto, categoria, titulo, contenido, precio }) => {
   const navigation = useNavigation();
-  const fecha = new Date(createdAt);
-  const fechaFormateada = fecha.toLocaleString("es-ES", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("ProductDetails", { _id: _id })} className={"w-full bg-white dark:bg-gray-50/10 rounded-3xl p-5 my-5"}>
+    <View className={"w-full bg-white dark:bg-gray-50/10 rounded-3xl p-5 my-5"}>
       <Text
         className={"text-sm font-bold text-black/60 dark:text-white/70 mb-4"}
       >
@@ -35,19 +21,16 @@ const ProductCart = ({
         />
       </View>
       <View className="mt-5">
-        <Text
-          className="text-sm font-bold text-black/60 dark:text-white/70 "
-        >
-          {fechaFormateada}
-        </Text>
         <Text className={"text-lg font-bold dark:text-white"}>{titulo}</Text>
-
         <Text
           numberOfLines={2}
           className={"text-base text-black/60 dark:text-white/70 mt-2"}
         >
           {contenido}
         </Text>
+        {
+          // View que pone todo en el centro
+        }
         <View className="justify-center items-center mt-2">
           <Text
             className={
@@ -99,8 +82,25 @@ const ProductCart = ({
             )}
           </View>
         </View>
+        <TouchableOpacity
+          className="flex-row justify-center rounded-full bg-black/90 dark:bg-white/90 p-3 w-10/12 self-center mt-5"
+          onPress={() => navigation.navigate("ServiceDetails", { _id: _id })}
+        >
+          <Text className="text-white dark:text-black font-bold">Ver más</Text>
+        </TouchableOpacity>
+        {/*
+          <TouchableOpacity className="flex-row justify-center rounded-full bg-black/90 dark:bg-white/90 p-3 self-center mt-5 mx-1">
+            <Text className="text-white dark:text-black font-bold">
+              <MaterialCommunityIcons
+                name="cards-heart"
+                color={"#F00"}
+                size={26}
+              />
+            </Text>
+          </TouchableOpacity>
+            */}
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

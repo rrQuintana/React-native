@@ -7,7 +7,6 @@ import {
 } from "react-native";
 import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const HomeScreen1 = () => {
   const navigation = useNavigation();

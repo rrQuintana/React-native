@@ -1,27 +1,24 @@
 import { View, Text, FlatList } from "react-native";
 import React, { useState, useEffect } from "react";
-import ProductCart from "./ProductCart";
-import { REACT_APP_SERVER_HOST } from '@env';
+import ServiceCart from "./ServiceCart";
 
-const ProductList = () => {
-  const SERVER_HOST = process.env.SERVER_HOST
-
+const ServiceList = () => {
   const [publicaciones, setPublicaciones] = useState([]);
+  //Petición get a http://localhost:4000/api/publicaciones
   useEffect(() => {
-    fetch(`http://${REACT_APP_SERVER_HOST}/api/publicaciones/tipo/Producto`)
+    fetch("http://192.168.0.6:4000/api/publicaciones/tipo/Servicio")
       .then((res) => res.json())
       .then((data) => {
         setPublicaciones(data);
       });
   }, []);
-
   return (
     <FlatList
       data={publicaciones}
       keyExtractor={(publicaciones) => publicaciones._id}
-      renderItem={({ item }) => <ProductCart {...item} />}
+      renderItem={({ item }) => <ServiceCart {...item} />}
     />
   );
 };
 
-export default ProductList;
+export default ServiceList;
