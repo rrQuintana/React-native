@@ -29,10 +29,9 @@ const Tabs = () => {
     <NavigationContainer name="tabs">
       <Tab.Navigator
         initialRouteName="Feed"
-        activeColor="#e91e63"
+        activeColor="#E2443B"
         inactiveColor="#aaa"
         barStyle={{ backgroundColor: barBackgroundColor  }}
-        className="bg-white black:bg-black"
       >
         <Tab.Screen
           name="Home"
@@ -50,7 +49,7 @@ const Tabs = () => {
           options={{
             tabBarLabel: "Artículos",
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="card-account-details" color={color} size={26} />
+              <MaterialCommunityIcons name="bag-personal" color={color} size={26} />
             ),
           }}
         />
@@ -74,7 +73,7 @@ const Tabs = () => {
           options={{
             tabBarLabel: "Perfil",
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="account" color={color} size={26} />
+              <MaterialCommunityIcons name="account-circle" color={color} size={26} />
             ),
           }}
         />

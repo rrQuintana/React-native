@@ -10,10 +10,11 @@ import { firebaseConfig } from "../../firebase.config";
 import { AuthContext } from "../../AuthContext";
 import { useColorScheme } from "nativewind";
 import { REACT_APP_SERVER_HOST } from '@env';
-
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
+  const navigation = useNavigation();
 
   const [registro, setRegistro] = useState(false);
   const { setUser } = useContext(AuthContext);
@@ -28,6 +29,7 @@ const LoginScreen = () => {
   const [telefono, setTelefono] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [direccion, setDireccion] = useState("");
 
   const handleCreateAccount = () => {
     createUserWithEmailAndPassword(auth, email.text, password.text)
@@ -59,9 +61,9 @@ const LoginScreen = () => {
           apellido: apellido.text,
           telefono: telefono.text,
           email: email.text,
-          direccion: "Sin asignar",
+          direccion: direccion.text,
           contacto: "Sin asignar",
-          foto: "https://firebasestorage.googleapis.com/v0/b/swapper-stu.appspot.com/o/Assets%2Fdefault.png?alt=media&token=52eb541d-0c1d-4acc-ac9e-ae0eb13e8a42",
+          foto: "https://scontent.foax1-1.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?_nc_cat=106&ccb=1-7&_nc_sid=c6021c&_nc_eui2=AeHRCG_9TRy9dX-Hm35n5nSiso2H55p0AlGyjYfnmnQCUbg31lqjTm2yCfT8j7X3uJ0hr1l-bogaiVyxaGQqK_M0&_nc_ohc=102P-6BNVGYAX_i5QuB&_nc_ht=scontent.foax1-1.fna&oh=00_AfA6APGIrvxYjRvtN6XI9FkUva_4Ls1XtV5WN_wKuQFEIA&oe=64555138",
           calificacion: 0,
           reportes: 0,
           estatus: 1,
@@ -93,8 +95,11 @@ const LoginScreen = () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          setUser(data);          
           Alert.alert("Bienvenido a Swapit!", `Hola ${data.nombre}, ahora puedes usar Swapit para intercambiar artículos y servicios con tus compañeros universitarios.`);
-          setUser(data);
+          navigation.navigate("Profile", {
+            _id: data._id
+          })
         });      
     } catch (e) {
       Alert.alert(e.message);
@@ -149,6 +154,13 @@ const LoginScreen = () => {
             placeholder="Telefono"
             name="telefono"
             onChangeText={(text) => setTelefono({ text })}
+            className="dark:bg-white"
+            style={styles.input}
+          />
+          <TextInput
+            placeholder="Institución educativa"
+            name="direccion"
+            onChangeText={(text) => setDireccion({ text })}
             className="dark:bg-white"
             style={styles.input}
           />

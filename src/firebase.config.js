@@ -1,9 +1,8 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyAyHZDrQ1pyF1tkyUa2cKOPtYXs1v1PlwQ",
-  authDomain: "swapper-stu.firebaseapp.com",
-  projectId: "swapper-stu",
-  storageBucket: "swapper-stu.appspot.com",
-  messagingSenderId: "965342473110",
-  appId: "1:965342473110:web:bc1f6ecd28377960a5cbb7",
-  measurementId: "G-S0EEEE4VL9"
+  apiKey: "AIzaSyDWJLPhZSCC5uXe2Bj_eSNt4RhlGq1vOT0",
+  authDomain: "xchange-trueques.firebaseapp.com",
+  projectId: "xchange-trueques",
+  storageBucket: "xchange-trueques.appspot.com",
+  messagingSenderId: "572909945075",
+  appId: "1:572909945075:web:eb8ee84379cd21e81df786"
 };

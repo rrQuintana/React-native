@@ -16,7 +16,7 @@ const ServicesStackScreen = () => {
       initialRouteName="  ProductsStack"
       screenOptions={{
         headerMode: "screen",
-        headerTintColor: textColor,
+        headerTintColor: "black",
         headerStyle: { backgroundColor: barBackgroundColor },
       }}
     >

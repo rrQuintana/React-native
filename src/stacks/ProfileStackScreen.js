@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import PerfilScreen from '../screens/Perfil/PerfilScreen';
 import AddProductScreen from '../screens/Perfil/AddProductScreen';
 import AddServiceScreen from '../screens/Perfil/AddServiceScreen';
+import LoginScreen from '../screens/Perfil/LoginScreen';
 
 const ProfileStackScreen = () => {
   const ProfileStack = createNativeStackNavigator();
@@ -12,6 +13,7 @@ const ProfileStackScreen = () => {
     <ProfileStack.Navigator screenOptions={{
       headerShown: false,
     }}>
+      <ProfileStack.Screen name="Login" component={LoginScreen} />
       <ProfileStack.Screen name="Profile" component={PerfilScreen} />
       <ProfileStack.Screen name="AddProduct" component={AddProductScreen} />
       <ProfileStack.Screen name="AddService" component={AddServiceScreen} />
